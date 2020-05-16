@@ -13,10 +13,28 @@
   
   <div class="timer" id="timer"></div>
   <div class="container">
+    <div>
+      <button id="easy" title = "All lowercase with no special characters">EASY</button>
+      <button id="medium" title = "Uppercase letters and some special characters">MEDIUM</button>
+      <button id="hard" title = "ALL THE SPECIAL CHARACTERS"> HARD</button>
+      <script>
+        document.getElementById("easy").addEventListener("click",function(){
+          renderNewQuote("easy")
+        })
+        document.getElementById("medium").addEventListener("click",function(){
+          renderNewQuote("medium")
+        })
+        document.getElementById("hard").addEventListener("click",function(){
+          renderNewQuote("hard")
+        })
+
+      </script>
+    </div>
+
     <h3 class="scoreBoardTitle">Just Start Typing and The Timer Will Start</h3>
     <div class="quote-display" id="quoteDisplay"></div>
-    <textarea id="quoteInput" class="quote-input" autofocus></textarea>
-    <button onclick="location.reload();">Restart</button>
+    <textarea id="quoteInput" class="quote-input" autofocus disabled></textarea>
+    <!-- <button onclick="location.reload();">Restart</button> -->
   </div>
   <div class="scoreArea">
     <h3 class="scoreBoardTitle">YOUR MOST RECENT SCORES</h3>
@@ -25,7 +43,12 @@
    
       </ul>
     </div>
+    <div> 
+      <form action="http://127.0.0.1:5500/graph.html">
+        <input type="submit" value="Score Graph" />
+    </form>
   </div>
+  
   
 </body>
 </html>

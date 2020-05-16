@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form action="http://127.0.0.1:5500/index.html">
+            <input type="submit" value="Typing Test" />
+        </form>
+        <canvas id="myChart"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script>
+            let storages = JSON.parse(sessionStorage.getItem("scores"));
+            storages = storages.reverse()
+            console.log(storages)
+            console.log(typeof(storages))
+            var runs = []
+            for(var i = 0; i < storages.length; i++) {
+                runs.push("Run #" + i)
+            }
+            console.log(runs)
+            var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    // The type of chart we want to create
+                    type: 'line',
+                
+                    // The data for our dataset
+                    data: {
+                        labels: runs,
+                        datasets: [{
+                            label: 'Session Score Results',
+                            backgroundColor: 'rgb(255, 255, 255)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: storages
+                        }]
+                    },
+                
+                    // Configuration options go here
+                    options: {}
+                });
+            </script>
+    </body>
+</html>
